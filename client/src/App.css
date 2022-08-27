@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+* {
+  font-family: "poppins", sans-serif;
+}
+
+.card {
+  height: 30rem;
+  width: 232px;
+}
+.card img {
+  height: 14rem;
+  object-fit: contain;
+}
+
+.card-body {
+  height: 1rem;
+  overflow-y: auto;
+}
+
+.cart {
+  top: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  width: 50rem;
+}
+
+.cart.active {
+  right: 0;
+}
+.cart-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.cart-box {
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cart-img {
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 15px;
+}
+
+.detail-box {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.cart-product-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.cart-price {
+  font-weight: 500;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  border-top: 1px solid black;
+}
+
+.total-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.total-price {
+  margin-left: 0.5rem;
+}
+
+.btn-buy {
+  display: flex;
+  margin: 1.5rem auto 0 auto;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.cart-close {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 1rem;
+  color: black;
+  cursor: pointer;
+}
+
+.cart-quantity {
+  border: 1px solid black;
+  outline-color: black;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-remove {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+.logo-page {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.logo-page img {
+  height: 100px;
+}
+.navbar-brand {
+  font-family: "roboto", monospace;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.shop-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+  gap: 2rem;
+  margin-top: 2rem;
+}
