@@ -151,3 +151,9 @@
   gap: 2rem;
   margin-top: 2rem;
 }
+
+.form-select {
+  margin: auto;
+  display: flex;
+  width: 300px;
+}

@@ -2,9 +2,21 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import convertRupiah from "rupiah-format";
+import { getCustomers } from "../axios/customerAxios";
 
 const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
+  const [customers, setCustomers] = useState({});
+
+  const [transaction, setTransaction] = useState({
+    product_id: [],
+    totalprice: "",
+    customer_id: "",
+  });
+
+  const submitHandler = () => {
+    console.log(transaction);
+  };
 
   const handleRemove = (id) => {
     const arr = cart.filter((item) => item.id !== id);
@@ -17,6 +29,10 @@ const Cart = ({ cart, setCart, handleChange }) => {
     cart.map((item) => (ans += item.price));
     setPrice(ans);
   };
+
+  useEffect(() => {
+    getCustomers((result) => setCustomers(result));
+  }, []);
 
   useEffect(() => {
     handlePrice();
@@ -51,7 +67,24 @@ const Cart = ({ cart, setCart, handleChange }) => {
         <div className="total-title">Total</div>
         <div className="total-price">{convertRupiah.convert(price)}</div>
       </div>
-      <button type="button" class="btn btn-primary btn-buy">
+
+      <select className="form-select m-centered mt-3" aria-label="Default select example">
+        <option selected>Select Customer</option>
+        {customers.length > 0 ? (
+          customers.map((customer) => {
+            const { id, name, phone } = customer;
+            return (
+              <option value={id}>
+                {name} - {phone}
+              </option>
+            );
+          })
+        ) : (
+          <h2>loading...</h2>
+        )}
+      </select>
+
+      <button onChange={() => setTransaction({ ...transaction, product_id: cart })} type="button" class="btn btn-primary btn-buy">
         Checkout
       </button>
     </div>

@@ -7,6 +7,19 @@ class CustomerController {
         order: [["id", "desc"]],
       });
 
+      res.json(resultCustomer);
+      // res.render("customer/index.ejs", { title: "Halaman Customer", dataCustomer: resultCustomer });
+    } catch (err) {
+      res.json(err);
+    }
+  }
+
+  static async getAdminCustomers(req, res) {
+    try {
+      let resultCustomer = await customer.findAll({
+        order: [["id", "desc"]],
+      });
+
       // res.json(resultCustomer);
       res.render("customer/index.ejs", { title: "Halaman Customer", dataCustomer: resultCustomer });
     } catch (err) {

@@ -65,7 +65,7 @@
                     <td><%= customer.phone %></td>
                     <td>
                       <a href="#"><span class="badge badge-success" data-toggle="modal" data-target="#editCustomer<%= customer.id %>">Edit</span></a>
-                      <a href="/api/customers/delete/<%= customer.id %>"><span class="badge badge-danger ml-3">Delete</span></a>
+                      <a href="/customers/delete/<%= customer.id %>"><span class="badge badge-danger ml-3">Delete</span></a>
                     </td>
                   </tr>
                   <%no++ %> <% })%>
