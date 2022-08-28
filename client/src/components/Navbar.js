@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setShow }) => {
   return (
     <div className="shadow-sm">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" onClick={() => setShow(true)} to="/">
             . Sneak
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +17,12 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link to="/cart" className="nav-link" href="">
-                  Cart
-                  <FontAwesomeIcon icon={faCartShopping} className="cart-icon mx-2" />
-                </Link>
+                <div className="cartIcon" onClick={() => setShow(false)}>
+                  <span className="nav-link">
+                    Cart
+                    <FontAwesomeIcon icon={faCartShopping} className="cart-icon mx-2" />
+                  </span>
+                </div>
               </li>
               <li class="nav-item dropdown me-3">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

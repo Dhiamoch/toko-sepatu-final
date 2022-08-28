@@ -6,13 +6,17 @@ import convertRupiah from "rupiah-format";
 
 const PumaPage = () => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  const handleClick = (product) => setCart([...cart, product]);
+  console.log(cart);
 
   useEffect(() => {
     getProducts((result) => setProducts(result));
   }, []);
 
   return (
-    <div>
+    <section>
       <div className="logo-page">
         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Puma_AG.svg/1200px-Puma_AG.svg.png"></img>
       </div>
@@ -33,10 +37,10 @@ const PumaPage = () => {
                     </p>
                   </div>
                   {stock > 0 ? (
-                    <a href="/" className="btn btn-dark btn-md ">
+                    <button onClick={() => handleClick(product)} className="btn btn-dark btn-md ">
                       <FontAwesomeIcon icon={faCartPlus} className="mx-2" />
                       add to cart
-                    </a>
+                    </button>
                   ) : (
                     <button type="button" className="btn btn-md btn-danger" disabled>
                       Sold out
@@ -52,7 +56,7 @@ const PumaPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

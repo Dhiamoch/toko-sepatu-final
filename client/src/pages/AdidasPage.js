@@ -7,12 +7,17 @@ import convertRupiah from "rupiah-format";
 const AdidasPage = () => {
   const [products, setProducts] = useState([]);
 
+  const [cart, setCart] = useState([]);
+
+  const handleClick = (product) => setCart([...cart, product]);
+  console.log(cart);
+
   useEffect(() => {
     getProducts((result) => setProducts(result));
   }, []);
 
   return (
-    <div>
+    <section>
       <div className="logo-page">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"></img>
       </div>
@@ -33,10 +38,10 @@ const AdidasPage = () => {
                     </p>
                   </div>
                   {stock > 0 ? (
-                    <a href="/" className="btn btn-dark btn-md ">
+                    <button onClick={() => handleClick(product)} className="btn btn-dark btn-md ">
                       <FontAwesomeIcon icon={faCartPlus} className="mx-2" />
                       add to cart
-                    </a>
+                    </button>
                   ) : (
                     <button type="button" className="btn btn-md btn-danger" disabled>
                       Sold out
@@ -52,7 +57,7 @@ const AdidasPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
